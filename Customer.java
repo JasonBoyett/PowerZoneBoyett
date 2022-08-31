@@ -8,13 +8,13 @@ public class Customer {
     public boolean validateCustomerID(String customerID) {
         for(int i = 0; i < customerID.length(); i++) {
             if( customerID.charAt(i) >= 'A' || customerID.charAt(i) <= 'Z'){
-                i = i;
+                
             } 
             if( customerID.charAt(i) >= 'a' || customerID.charAt(i) <= 'z'){
-                i = i;
+                
             } 
             if( customerID.charAt(i) >= '0' || customerID.charAt(i) <= '9'){
-                i = i;
+                
             } 
             else{
                 return false;
@@ -33,6 +33,7 @@ public class Customer {
         this.customerID = customerID;
         if(this.validateCustomerID(this.customerID) == false){
             ErrorGUI error = new ErrorGUI();
+            error.setVisible(true);
         }
         else
         this.formatCustomerID(this.customerID);

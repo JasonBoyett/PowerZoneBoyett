@@ -12,6 +12,7 @@ public class BookButton extends JButton {
 
         else if(bookedCustomer.validateCustomerID(this.bookedCustomer.getCustomerID()) == false){
             ErrorGUI error = new ErrorGUI();
+            error.setVisible(true);
             this.frame.setVisible(false);
         }
     }
