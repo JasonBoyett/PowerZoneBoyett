@@ -16,9 +16,9 @@ public class BookButton extends JButton {
             this.frame.setVisible(false);
         }
     }
-    public BookButton(Customer bookedCustomer,JFrame jFrame) {
+    public BookButton(String customerID,JFrame jFrame) {
         super();
-        this.bookedCustomer = bookedCustomer;
+        this.bookedCustomer = new Customer(customerID);
         this.frame = jFrame;
         this.addActionListener(e -> book());
     }
