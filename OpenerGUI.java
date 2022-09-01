@@ -28,5 +28,6 @@ public class OpenerGUI extends JFrame {
         this.setSize(1280, 720);
         this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 }
