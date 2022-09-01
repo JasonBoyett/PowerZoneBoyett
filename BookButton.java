@@ -1,8 +1,11 @@
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class BookButton extends JButton {
     JFrame frame;
+    static Icon icon = new ImageIcon("BookButton.png");
 
     public void book(Customer customer) {
         if (customer.validateCustomerID(customer.getCustomerID()) == true) {
@@ -18,9 +21,11 @@ public class BookButton extends JButton {
     }
 
     public BookButton(String CustomerID, JFrame jFrame) {
-        super();
+
+        super(icon);
         Customer customer = new Customer(CustomerID);
         this.frame = jFrame;
         this.addActionListener(e -> book(customer));
+        this.setSize(300, 200);
     }
 }

@@ -18,9 +18,15 @@ public class OpenerGUI extends JFrame {
         BookButton bookButton = new BookButton(this.customerID, this);
         final ImageIcon backgroundIcon = new ImageIcon("PowerZoneOpenerScreen.png");
         Image backgroundImage = backgroundIcon.getImage();
+        JLabel myJLabel = new JLabel(backgroundIcon);
+        myJLabel.setVisible(true);
+        myJLabel.setIcon(backgroundIcon);
+        this.add(bookButton);
+        bookButton.setBounds(515, 0, 300, 100);
+        this.add(myJLabel);
         this.setVisible(true);
         this.setSize(1280, 720);
-        this.setIconImage(backgroundImage);
+        this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
