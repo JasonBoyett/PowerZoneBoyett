@@ -10,7 +10,10 @@ public class Customer {
     }
 
     public boolean validateCustomerID(String customerID) {
-        for (int i = 0; i < this.customerID.length(); i++) {
+        if (this.customerID.equals("#####")) {
+            return true;
+        }
+        for (int i = 0; i < 7; i++) {
             if (customerID.charAt(i) >= 'A' || customerID.charAt(i) <= 'Z') {
 
             }
@@ -19,26 +22,36 @@ public class Customer {
             }
             if (customerID.charAt(i) >= '0' || customerID.charAt(i) <= '9') {
 
-            } else {
+            }
+            if (customerID.charAt(i) == '-' && i == 1) {
+
+            }
+            if (customerID.charAt(i) == '-' && i == 4) {
+
+            }
+            if (customerID.charAt(i) == ' ') {
                 return false;
             }
         }
+        System.out.println("was valid");
         return true;
     }
 
     private void formatCustomerID() {
-        this.customerID = this.customerID.toUpperCase();
-        this.customerID = this.customerID.charAt(0) + "-" + this.customerID.substring(1, 3) + "-"
-                + this.customerID.charAt(4);
+        try {
+            this.customerID = this.customerID.toUpperCase();
+            this.customerID = this.customerID.charAt(0) + "-" + this.customerID.substring(1, 4) + "-"
+                    + this.customerID.charAt(4);
+        } catch (Exception e) {
+            ErrorGUI error = new ErrorGUI();
+            error.setVisible(true);
+        }
     }
 
     public Customer(String CustomerID) {
         this.customerID = CustomerID;
-        if (this.validateCustomerID(this.customerID) == false) {
-            ErrorGUI error = new ErrorGUI();
-            error.setVisible(true);
-        } else
-            this.formatCustomerID();
+        this.formatCustomerID();
+        System.out.println("formatted");
     }
 
 }
