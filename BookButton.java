@@ -4,8 +4,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class BookButton extends JButton {
-    JFrame frame;
+    private JFrame frame;
     static Icon icon = new ImageIcon("BookButton.png");
+    
 
     public void book(Customer customer, JFrame frame) {
         if (customer.validateCustomerID(customer.getCustomerID()) == true) {
